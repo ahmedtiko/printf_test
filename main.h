@@ -46,6 +46,12 @@ int print_int(va_list ap, params_t *params);
 /* task 2 functions */
 int print_binary(va_list ap, params_t *params);
 
+/* task 3 functions */
+int print_unsigned(va_list ap, params_t *params);
+int print_octal(va_list ap, params_t *params);
+int print_hex(va_list ap, params_t *params);
+int print_HEX(va_list ap, params_t *params);
+
 int _printf(const char *format, ...);
 int _putchar(char c);
 
