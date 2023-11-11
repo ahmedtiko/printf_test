@@ -19,8 +19,21 @@
 #define CONVERT_LOWERCASE 1
 #define CONVERT_UNSIGNED 2
 
-typedef struct parameters
-{}
+typedef struct params
+{
+	unsigned int unsign : 1;
+	unsigned int plus_flag : 1;
+	unsigned int space_flag : 1;
+	unsigned int minus_flag : 1;
+	unsigned int zero_flag : 1;
+	unsigned int hashtag_flag : 1;
+
+	unsigned int width;
+	unsigned int precision;
+
+	unsigned int l_modifier : 1;
+	unsigned int h_modifier : 1;
+} params_t;
 
 /* task 0 functions */
 int print_char(va_list ap, params_t *params);
