@@ -35,10 +35,10 @@ typedef struct params
 	unsigned int h_modifier : 1;
 } params_t;
 
-typedef  struct specifier
+typedef struct specifier
 {
-	char *specifer;
-	int (*f)(va_list params_t *);
+	char *specifier;
+	int (*f)(va_list, params_t *);
 } specifier_t;
 
 /* task 0 functions */
