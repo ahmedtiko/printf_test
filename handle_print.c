@@ -19,7 +19,7 @@ int handle_print(const char *format, int *ind, va_list list, char buffer[],
 		{'c', print_char}, {'s', print_string}, {'%', print_percent},
 		{'i', print_int}, {'d', print_int}, {'b', print_binary},
 		{'u', print_unsigned}, {'o', print_octal}, {'x', print_hexadecimal},
-		{'X', print_hexa_upper}, {'p', print_pointer}, {'S', print_non_printable},
+		{'X', print_hexa}, {'p', print_pointer}, {'S', print_non_printable},
 		{'r', print_reverse}, {'R', print_rot13string}, {'\0', NULL}
 	};
 
@@ -60,5 +60,5 @@ int handle_print(const char *format, int *ind, va_list list, char buffer[],
 		un_len += write(1, &format[*ind], 1);
 		return (un_len);
 	}
-	return (printed_chars);
+	return (print_char);
 }
