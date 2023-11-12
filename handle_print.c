@@ -42,7 +42,7 @@ int handle_print(const char *format, int *ind, va_list list, char buffer[],
             return -1;
         }
 
-        // Handle other cases here
+        /* Handle other cases here*/
 
         return un_len;
     }
