@@ -1,20 +1,19 @@
 #include "main.h"
 
 /**
- * handle_write_char - Prints a string
- * @c: char types.
- * @buffer: Buffer array to handle print
- * @flags:  Calculates active flags.
- * @width: get width.
- * @precision: precision specifier
- * @size: Size specifier
- *
+ * hand_write_ch - Handles the writing of characters for width formatting.
+ * @c: Character to be written.
+ * @buffer: Buffer array to handle print.
+ * @flags: Calculates active flags.
+ * @width: Width.
+ * @precision: Precision specification.
+ * @size: Size specifier.
  * Return: Number of chars printed.
  */
 int hand_write_ch(char c, char buffer[],
 	int flags, int width, int precision, int size)
 {
-	int y = 0;
+	int i, y = 0;
 	char padd = ' ';
 
 	UNUSED(precision);
@@ -52,22 +51,21 @@ int hand_write_ch(char c, char buffer[],
 }
 
 /**
- * write_number - Prints a string
- * @is_negative: Lista of arguments
- * @ind: char types.
- * @buffer: Buffer array to handle print
- * @flags:  Calculates active flags
- * @width: get width.
- * @precision: precision specifier
- * @size: Size specifier
- *
+ * write_num_0 - Writes a number with zero padding.
+ * @is_positive: Indicator for positive number.
+ * @ind: Index at which the number starts on the buffer.
+ * @buffer: Buffer array to handle print.
+ * @flags: Calculates active flags.
+ * @width: Width.
+ * @precision: Precision specifier.
+ * @size: Size specifier.
  * Return: Number of chars printed.
  */
-int write_num_0(int is_negative, int ind, char buffer[],
+int write_num_0(int is_positive, int ind, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	int len = BUFF_SIZE - ind - 1;
-	char padd = ' ', xtra_ch = 0;
+	char padd = ' ', extra_ch = 0;
 
 	UNUSED(size);
 
@@ -75,9 +73,9 @@ int write_num_0(int is_negative, int ind, char buffer[],
 	{
 		padd = '0';
 	}
-	if (is_negative)
+	if (is_positive)
 	{
-		extra_ch = '-';
+		extra_ch = '+';
 	}
 	else if (flags & FLAG_PLUS)
 	{
@@ -89,19 +87,19 @@ int write_num_0(int is_negative, int ind, char buffer[],
 	}
 
 	return (write_num(ind, buffer, flags, width, precision,
-		length, padd, extra_ch));
+		len, padd, extra_ch));
 }
 
 /**
- * write_num - Write a number using a bufffer
- * @ind: Index at which the number starts on the buffer
- * @buffer: Buffer
- * @flags: Flags
- * @width: width
- * @prec: Precision specifier
- * @length: Number length
- * @padd: Pading char
- * @extra_c: Extra char
+ * write_num - Write a number using a buffer.
+ * @ind: Index at which the number starts on the buffer.
+ * @buffer: Buffer.
+ * @flags: Flags.
+ * @width: Width.
+ * @prec: Precision specifier.
+ * @length: Number length.
+ * @padd: Padding char.
+ * @extra_c: Extra char.
  *
  * Return: Number of printed chars.
  */
@@ -175,14 +173,14 @@ int write_num(int ind, char buffer[],
 }
 
 /**
- * write_unsgnd - Writes an unsigned number
- * @is_negative: Number indicating if the num is negative
- * @ind: Index at which the number starts in the buffer
- * @buffer: Array of chars
- * @flags: Flags specifiers
- * @width: Width specifier
- * @precision: Precision specifier
- * @size: Size specifier
+ * write_unsgnd - Writes an unsigned number.
+ * @is_negative: Number indicating if the num is negative.
+ * @ind: Index at which the number starts in the buffer.
+ * @buffer: Array of chars.
+ * @flags: Flags specifiers.
+ * @width: Width specifier.
+ * @precision: Precision specifier.
+ * @size: Size specifier.
  *
  * Return: Number of written chars.
  */
@@ -237,15 +235,15 @@ int write_unsgnd(int is_negative, int ind,
 }
 
 /**
- * write_pointer - Write a memory address
- * @buffer: Arrays of chars
- * @ind: Index at which the number starts in the buffer
- * @length: Length of number
- * @width: Width specifier
- * @flags: Flags specifier
- * @padd: Char representing the padding
- * @extra_c: Char representing extra char
- * @padd_start: Index at which padding should start
+ * write_pointer - Write a memory address.
+ * @buffer: Arrays of chars.
+ * @ind: Index at which the number starts in the buffer.
+ * @length: Length of number.
+ * @width: Width specifier.
+ * @flags: Flags specifier.
+ * @padd: Char representing the padding.
+ * @extra_c: Char representing extra char.
+ * @padd_start: Index at which padding should start.
  *
  * Return: Number of written chars.
  */
