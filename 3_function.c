@@ -22,9 +22,8 @@ int print_char(va_list types, char buffer[],
     UNUSED(precision);
     UNUSED(size);
 
-    return (hand_write_ch(c, buffer));
+    return hand_write_ch(c, buffer);
 }
-
 /************************* PRINT A STRING *************************/
 /**
  * print_string - Prints a string
