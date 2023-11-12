@@ -29,7 +29,7 @@ int handle_print(const char *format, int *ind, va_list list, char buffer[],
     {
         if (format[*ind] == format_types[i].format)
         {
-            return (format_types[i].fn(list, buffer, flags, width, precision, size));
+            return format_types[i].fn(list, buffer, flags, width, precision, size);
         }
     }
 
@@ -37,12 +37,12 @@ int handle_print(const char *format, int *ind, va_list list, char buffer[],
     {
         if (format[*ind] == '\0')
         {
-            return (-1);
+            return -1;
         }
 
         un_len += write(1, &format[*ind], 1);
-        return (un_len);
+        return un_len;
     }
 
-    return (print_char);
+    return print_char;
 }
