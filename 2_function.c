@@ -88,7 +88,7 @@ int print_non_printable(va_list types, char buffer[],
 	}
 	while (str[i] != '\0')
 	{
-		if (isprint_1(str[i]))
+		if (isprint(str[i]))
 		{
 			buffer[i + offset] = str[i];
 		}
