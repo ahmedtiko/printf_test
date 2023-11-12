@@ -1,14 +1,15 @@
 #include "main.h"
+
 /**
  * handle_print - Prints an argument based on its type
- * @fmt: Formatted string in which to print the arguments.
+ * @format: Formatted string in which to print the arguments.
+ * @ind: Index.
  * @list: List of arguments to be printed.
- * @ind: ind.
  * @buffer: Buffer array to handle print.
- * @flags: Calculates active flags
- * @width: get width.
- * @precision: Precision specification
- * @size: Size specifier
+ * @flags: Calculates active flags.
+ * @width: Width.
+ * @precision: Precision specification.
+ * @size: Size specifier.
  * Return: 1 or 2;
  */
 int handle_print(const char *format, int *ind, va_list list, char buffer[],
@@ -23,18 +24,19 @@ int handle_print(const char *format, int *ind, va_list list, char buffer[],
 		{'r', print_reverse}, {'R', print_rot13string}, {'\0', NULL}
 	};
 
-	for (i = 0; format_types[i].format != '\0'; i++)
+	for (i = 0; format_types[i].fmt != '\0'; i++)
 	{
-		if (format[*ind] == format_types[i].format)
+		if (format[*ind] == format_types[i].fmt)
 		{
-			return (format_types[i].fn(list, buffer, flags, width, precision, size));
+			return format_types[i].fn(list, buffer, flags, width, precision, size);
 		}
+	}
 
-	if (format_types[i].format == '\0')
+	if (format_types[i].fmt == '\0')
 	{
 		if (format[*ind] == '\0')
 		{
-			return (-1);
+			return -1;
 		}
 
 		un_len += write(1, "%%", 1);
@@ -46,7 +48,7 @@ int handle_print(const char *format, int *ind, va_list list, char buffer[],
 		else if (width)
 		{
 			--(*ind);
-			while (format[*ind] != ' ' && fmt[*ind] != '%')
+			while (format[*ind] != ' ' && format[*ind] != '%')
 			{
 				--(*ind);
 			}
@@ -54,11 +56,12 @@ int handle_print(const char *format, int *ind, va_list list, char buffer[],
 			{
 				--(*ind);
 			}
-			return (1);
+			return 1;
 		}
 
 		un_len += write(1, &format[*ind], 1);
-		return (un_len);
+		return un_len;
 	}
-	return (print_char);
+
+	return print_char;
 }
