@@ -20,8 +20,10 @@ int print_unsigned(va_list types, char buffer[],
 	num = convert_size_unsgnd(num, size);
 
 	if (num == 0)
+	{
 		buffer[i--] = '0';
-
+	}
+	
 	buffer[BUFF_SIZE - 1] = '\0';
 
 	while (num > 0)
@@ -59,7 +61,9 @@ int print_octal(va_list types, char buffer[],
 	num = convert_size_unsgnd(num, size);
 
 	if (num == 0)
+	{
 		buffer[i--] = '0';
+	}
 
 	buffer[BUFF_SIZE - 1] = '\0';
 
@@ -70,7 +74,9 @@ int print_octal(va_list types, char buffer[],
 	}
 
 	if (flags & F_HASH && init_num != 0)
+	{
 		buffer[i--] = '0';
+	}
 
 	i++;
 
@@ -97,7 +103,7 @@ int print_hexadecimal(va_list types, char buffer[],
 
 /************* PRINT UNSIGNED NUMBER IN UPPER HEXADECIMAL **************/
 /**
- * print_hexa_upper - Prints an unsigned number in upper hexadecimal notation
+ * print_HEXA - Prints an unsigned number in upper hexadecimal notation
  * @types: Lista of arguments
  * @buffer: Buffer array to handle print
  * @flags:  Calculates active flags
@@ -106,7 +112,7 @@ int print_hexadecimal(va_list types, char buffer[],
  * @size: Size specifier
  * Return: Number of chars printed
  */
-int print_hexa_upper(va_list types, char buffer[],
+int print_HEXA(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
 {
 	return (print_hexa(types, "0123456789ABCDEF", buffer,
@@ -139,8 +145,10 @@ int print_hexa(va_list types, char map_to[], char buffer[],
 	num = convert_size_unsgnd(num, size);
 
 	if (num == 0)
+	{
 		buffer[i--] = '0';
-
+	}
+	
 	buffer[BUFF_SIZE - 1] = '\0';
 
 	while (num > 0)
@@ -149,7 +157,7 @@ int print_hexa(va_list types, char map_to[], char buffer[],
 		num /= 16;
 	}
 
-	if (flags & F_HASH && init_num != 0)
+	if (flags & FLAG_HASH && init_num != 0)
 	{
 		buffer[i--] = flag_ch;
 		buffer[i--] = '0';
