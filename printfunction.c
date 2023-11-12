@@ -121,9 +121,9 @@ int count = 0;
 // Handle flags
 if (params)
 {
-// Implement flag handling (if needed)
+/* Implement flag handling (if needed)*/
 }
-// Implement print_int logic here
+/* Implement print_int logic here*/
 char num_str[20];
 int length = sprintf(num_str, "%d", n);
 count += write_buffer(num_str, length);
@@ -133,8 +133,8 @@ int print_binary(va_list args, params_t *params)
 {
 unsigned int n = va_arg(args, unsigned int);
 int count = 0;
-// Implement flag handling (if needed)
-// Implement print_binary logic here
+/* Implement flag handling (if needed)*/
+/* Implement print_binary logic here*/
 char binary_str[40];
 int length = sprintf(binary_str, "%o", n);
 count += write_buffer(binary_str, length);
@@ -144,8 +144,8 @@ int print_unsigned(va_list args, params_t *params)
 {
 unsigned int n = va_arg(args, unsigned int);
 int count = 0;
-// Implement flag handling (if needed)
-// Implement print_unsigned logic here
+/* Implement flag handling (if needed)*/
+/* Implement print_unsigned logic here*/
 char unsigned_str[20];
 int length = sprintf(unsigned_str, "%u", n);
 count += write_buffer(unsigned_str, length);
@@ -155,8 +155,8 @@ int print_octal(va_list args, params_t *params)
 {
 unsigned int n = va_arg(args, unsigned int);
 int count = 0;
-// Implement flag handling (if needed)
-// Implement print_octal logic here
+/* Implement flag handling (if needed)*/
+/*Implement print_octal logic here*/
 char octal_str[20];
 int length = sprintf(octal_str, "%o", n);
 count += write_buffer(octal_str, length);
@@ -166,8 +166,8 @@ int print_hex(va_list args, params_t *params)
 {
 unsigned int n = va_arg(args, unsigned int);
 int count = 0;
-// Implement flag handling (if needed)
-// Implement print_hex logic here
+/* Implement flag handling (if needed)*/
+/* Implement print_hex logic here*/
 char hex_str[20];
 int length = sprintf(hex_str, "%x", n);
 count += write_buffer(hex_str, length);
@@ -177,8 +177,8 @@ int print_HEX(va_list args, params_t *params)
 {
 unsigned int n = va_arg(args, unsigned int);
 int count = 0;
-// Implement flag handling (if needed)
-// Implement print_HEX logic here
+/* Implement flag handling (if needed)*/
+/*Implement print_HEX logic here*/
 char HEX_str[20];
 int length = sprintf(HEX_str, "%X", n);
 count += write_buffer(HEX_str, length);
@@ -188,8 +188,8 @@ int print_custom_str(va_list args, params_t *params)
 {
 char *str = va_arg(args, char *);
 int count = 0;
-// Implement flag handling (if needed)
-// Implement print_custom_str logic here
+/* Implement flag handling (if needed)*/
+/* Implement print_custom_str logic here*/
 while (*str)
 {
 if (*str < 32 || *str >= 127)
@@ -210,8 +210,6 @@ int print_pointer(va_list args, params_t *params)
 {
 void *ptr = va_arg(args, void *);
 int count = 0;
-// Implement flag handling (if needed)
-// Implement print_pointer logic here
 char ptr_str[20];
 int length = sprintf(ptr_str, "%p", ptr);
 count += write_buffer(ptr_str, length);
@@ -221,8 +219,6 @@ int print_reversed_str(va_list args, params_t *params)
 {
 char *str = va_arg(args, char *);
 int count = 0;
-// Implement flag handling (if needed)
-// Implement print_reversed_str logic here
 int len = 0;
 while (str[len])
 len++;
