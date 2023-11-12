@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 			{
 				print_buffer(buffer, &buff_index);
 			}
-			printed_chars++;
+			print_char++;
 		}
 		else
 		{
