@@ -17,13 +17,9 @@ int print_char(va_list types, char buffer[],
 {
     char c = va_arg(types, int);
 
-    UNUSED(flags);
-    UNUSED(width);
-    UNUSED(precision);
-    UNUSED(size);
-
-    return hand_write_ch(c, buffer);
+    return hand_write_ch(c, buffer, flags, width, precision, size);
 }
+
 /************************* PRINT A STRING *************************/
 /**
  * print_string - Prints a string
