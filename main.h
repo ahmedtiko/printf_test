@@ -11,11 +11,11 @@
 #define UNUSED(x) (void)(x)
 #define BUFF_SIZE 1024
 /* +, -, 0, #, space FLAGS */
-#define FLAG_MINUS  ( 1 << 0 )
-#define FLAG_PLUS   ( 1 << 1 )
-#define FLAG_ZERO   ( 1 << 2 )
-#define FLAG_HASH   ( 1 << 3 )
-#define FLAG_SPACE  ( 1 << 4 )
+#define FLAG_MINUS  (1 < < 0)
+#define FLAG_PLUS   (1 < < 1)
+#define FLAG_ZERO   (1 < < 2)
+#define FLAG_HASH   (1 < < 3)
+#define FLAG_SPACE  (1 < < 4)
 /* Long and short SIZES */
 #define S_LONG  2
 #define S_SHORT 1
