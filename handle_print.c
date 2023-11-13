@@ -17,8 +17,6 @@ int handle_print(const char *format, int *ind, va_list list, char buffer[],
                  int flags, int width, int precision, int size)
 {
     int i;
-    int un_len = 0;
-    int print_char = -1;
 
     struct format
     {
@@ -27,12 +25,13 @@ int handle_print(const char *format, int *ind, va_list list, char buffer[],
     };
 
     struct format format_types[] = {
-        {'c', &print_char}, {'s', &print_string}, {'%', &print_percent},
-        {'i', &print_int}, {'d', &print_int}, {'b', &print_binary},
-        {'u', &print_unsigned}, {'o', &print_octal}, {'x', &print_hexadecimal},
-        {'X', &print_hexa}, {'p', &print_pointer}, {'S', &print_non_printable},
-        {'r', &print_reverse}, {'R', &print_rot13string}, {'\0', NULL}
-    };
+    {'c', &print_char}, {'s', &print_string}, {'%', &print_percent},
+    {'i', &print_int}, {'d', &print_int}, {'b', &print_binary},
+    {'u', &print_unsigned}, {'o', &print_octal}, {'x', &print_hexadecimal},
+    {'X', &print_HEXA}, {'p', &print_pointer}, {'S', &print_non_printable},
+    {'r', &print_reverse}, {'R', &print_rot13string}, {'\0', NULL}
+};
+
 
     for (i = 0; format_types[i].fmt != '\0'; i++)
     {
@@ -42,15 +41,14 @@ int handle_print(const char *format, int *ind, va_list list, char buffer[],
         }
     }
 
-    /* Handle other cases here */
     if (format[*ind] == '\0')
     {
-        return 0; /* End of format string */
+        return 0;
     }
     else
     {
         buffer[0] = format[*ind];
         buffer[1] = '\0';
-        return 1; /* Single character printed */
+        return 1; 
     }
 }
