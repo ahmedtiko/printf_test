@@ -29,7 +29,11 @@ typedef struct format
 {
 char fmt;
 int (*fn)(va_list, char[], int, int, int, int);
+<<<<<<< HEAD
 }format_t;
+=======
+} format_t;
+>>>>>>> ddce58af33aa374d286e0067e85e517add9648f2
 int _printf(const char *format, ...);
 int handle_print(const char *fmt, int *i,
 va_list list, char buffer[], int flags, int width, int precision, int size);
