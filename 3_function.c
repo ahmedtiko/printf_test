@@ -14,7 +14,7 @@ int print_char(va_list types, char buffer[],
                int flags, int width, int precision, int size)
 {
     char c = va_arg(types, int);
-    return hand_write_ch(c, buffer, flags, width, precision, size);
+    return (hand_write_ch(c, buffer, flags, width, precision, size));
 }
 /**
  * print_string - Prints a string
@@ -25,8 +25,7 @@ int print_char(va_list types, char buffer[],
  * @size: Size specifier
  * Return: Number of chars printed
  */
-int print_string(va_list types, char buffer[],
-int flags, int width, int precision, int size)
+int print_string(va_list types, int flags, int width, int precision, int size)
 {
     int len = 0, i;
     char *str = va_arg(types, char *);
