@@ -1,5 +1,5 @@
 #include "main.h"
-/************************ PRINT UNSIGNED NUMBER *************************/
+/*PRINT UNSIGNED NUM*/
 /**
  * print_unsigned - Prints an unsigned number
  * @types: List a of arguments
@@ -29,16 +29,16 @@ int print_unsigned(va_list types, char buffer[],
 	i++;
 	return (write_unsgnd(0, i, buffer, flags, width, precision, size));
 }
-/* PRINT UNSIGNED NUMBER IN OCTAL **/
+/* PRINT UNSIGNED NUM IN OCTAL **/
 /**
- * print_octal - Prints an unsigned number in octal notation
- * @types: Lista of arguments
- * @buffer: Buffer array to handle print
- * @flags:  Calculates active flags
+ * print_octal - Prints an unsigned number in octal
+ * @types: list of args
+ * @buffer: buffer array to handle print
+ * @flags:  calculates the active flags
  * @width: get width
  * @precision: Precision specification
  * @size: Size specifier
- * Return: Number of chars printed
+ * Return: Numb of chars printed
  */
 int print_octal(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
@@ -65,16 +65,16 @@ int print_octal(va_list types, char buffer[],
 	i++;
 	return (write_unsgnd(0, i, buffer, flags, width, precision, size));
 }
-/*********** PRINT UNSIGNED NUMBER IN HEXADECIMAL **************/
+/*PRINT UNSIGNED NUM IN HEXA*/
 /**
- * print_hexadecimal - Prints an unsigned number in hexadecimal notation
- * @types: Lista of arguments
- * @buffer: Buffer array to handle print
- * @flags:  Calculates active flags
+ * print_hexadecimal - Prints an unsigned number in hexadecimal
+ * @types: list of args
+ * @buffer: buffer array to handle print
+ * @flags:  calculates active flags
  * @width: get width
- * @precision: Precision specification
- * @size: Size specifier
- * Return: Number of chars printed
+ * @precision: precision specification
+ * @size: size specifier
+ * Return: Num of chars printed
  */
 int print_hexadecimal(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
@@ -82,16 +82,16 @@ int print_hexadecimal(va_list types, char buffer[],
 	return (print_hexa(types, "0123456789abcdef", buffer,
 		flags, 'x', width, precision, size));
 }
-/************* PRINT UNSIGNED NUMBER IN UPPER HEXADECIMAL **************/
+/*PRINT UNSIGNED NUM IN UPPER HEXADECIMAL */
 /**
- * print_HEXA - Prints an unsigned number in upper hexadecimal notation
- * @types: Lista of arguments
- * @buffer: Buffer array to handle print
- * @flags:  Calculates active flags
+ * print_HEXA - print an unsigned number in upper hexadecimal 
+ * @types: list of args
+ * @buffer: buffer array to handle print
+ * @flags:  calculates active flags
  * @width: get width
- * @precision: Precision specification
- * @size: Size specifier
- * Return: Number of chars printed
+ * @precision: precision specification
+ * @size: size specifier
+ * Return: Num of chars printed
  */
 int print_HEXA(va_list types, char buffer[],
 	int flags, int width, int precision, int size)
@@ -99,19 +99,18 @@ int print_HEXA(va_list types, char buffer[],
 	return (print_hexa(types, "0123456789ABCDEF", buffer,
 		flags, 'X', width, precision, size));
 }
-/************* PRINT HEXX NUM IN LOWER OR UPPER **************/
 /**
- * print_hexa - Prints a hexadecimal number in lower or upper
- * @types: Lista of arguments
- * @map_to: Array of values to map the number to
- * @buffer: Buffer array to handle print
- * @flags:  Calculates active flags
- * @flag_ch: Calculates active flags
+ * print_hexa - prints a hexadecimal number lower or upper
+ * @types: list of args
+ * @map_to: array of values that map the num to
+ * @buffer: buffer array to handle print
+ * @flags:  calculates active flags
+ * @flag_ch: calculates active flags
  * @width: get width
- * @precision: Precision specification
- * @size: Size specifier
- * @size: Size specification
- * Return: Number of chars printed
+ * @precision: precision specification
+ * @size: size specifier
+ * @size: size specification
+ * Return: Num of chars printed
  */
 int print_hexa(va_list types, char map_to[], char buffer[],
 	int flags, char flag_ch, int width, int precision, int size)
