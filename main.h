@@ -36,8 +36,8 @@ va_list list, char buffer[], int flags, int width, int precision, int size);
 /* Fns 4 printing string */
 int print_char(va_list types, char buffer[],
 int flags, int width, int precision, int size);
-int print_string(va_list types, char buffer[],
-int flags, int width, int precision, int size);
+int print_string(va_list types, int flags, 
+int width, int precision, int size);
 int print_percent(va_list types, char buffer[],
 int flags, int width, int precision, int size);
 /* Fns 4 printing numbers */
