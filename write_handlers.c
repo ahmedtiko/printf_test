@@ -10,7 +10,7 @@
 * Return: Number of chars printed.
 */
 int hand_write_ch(char c, char buffer[],
-<<<<<<< HEAD
+
 	int flags, int width, int precision, int size)
 {
 	int i, y = 0;
@@ -55,8 +55,6 @@ int hand_write_ch(char c, char buffer[],
 
 	return (write(1, &buffer[0], 1));
 }
-
-=======
 int flags, int width, int precision, int size)
 {
 int i, y = 0;
@@ -89,7 +87,6 @@ write(1, &buffer[0], 1));
 }
 return (write(1, &buffer[0], 1));
 }
->>>>>>> bc61b9c3f11a21e2ce60ca25c0ffae9f9c482aa7
 /**
 * write_num_0 - Writes a number with zero padding.
 * @is_positive: Indicator for positive number.
