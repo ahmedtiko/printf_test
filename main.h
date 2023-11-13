@@ -23,8 +23,7 @@
 #define S_LONG 2
 #define S_SHORT 1
 /**
- * struct format 
- *
+ * struct format
  * @fmt: The format.
  * @fn: The function associated.
  */
@@ -33,8 +32,6 @@ typedef struct format
 	char fmt;
 	int (*fn)(va_list, char[], int, int, int, int);
 } format_t;
-
-
 int _printf(const char *format, ...);
 int handle_print(const char *fmt, int *i,
 va_list list, char buffer[], int flags, int width, int precision, int size);
@@ -100,5 +97,4 @@ int ch_hex_code(char, char[], int);
 int _digit(char);
 long int conv_size(long int num, int size);
 long int conv_size_unsigned(unsigned long int num, int size);
-
-#endif 
+#endif
