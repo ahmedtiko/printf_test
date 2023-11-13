@@ -29,8 +29,8 @@ typedef struct format
 {
 char fmt;
 int (*fn)(va_list, char[], int, int, int, int);
-}format_t;
-}format_t;
+} format_t;
+} format_t;
 int _printf(const char *format, ...);
 int handle_print(const char *fmt, int *i,
 va_list list, char buffer[], int flags, int width, int precision, int size);
@@ -82,7 +82,7 @@ int write_num(int ind, char bff[], int flags, int width, int precision,
 int length, char padd, char extra_c);
 int write_pointer(char buffer[], int ind, int length,
 int width, int flags, char padd, char extra_c, int padd_start);
-int write_unsgnd(int is_negative, int ind,char buffer[],
+int write_unsgnd(int is_negative, int ind, char buffer[],
 int flags, int width, int precision, int size);
 /*util*/
 int i_print(char);
