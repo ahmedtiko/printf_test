@@ -126,7 +126,7 @@ buffer[i--] = (n % 10) + '0';
 n /= 10;
 }
 i++;
-return write_num_0(is_negative, i, buffer, flags, width, precision, size);
+return write_num_0((is_negative, i, buffer, flags, width, precision, size));
 }
 /************************* PRINT BINARY *************************/
 /**
@@ -167,5 +167,5 @@ write(1, &z, 1);
 count++;
 }
 }
-return count;
+return (count);
 }
