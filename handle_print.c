@@ -32,17 +32,17 @@ for (i = 0; format_types[i].fmt != '\0'; i++)
 {
 if (format[*ind] == format_types[i].fmt)
 {
-return format_types[i].fn(list, buffer, flags, width, precision, size);
+return (format_types[i].fn(list, buffer, flags, width, precision, size));
 }
 }
 if (format[*ind] == '\0')
 {
-return 0;
+return (0);
 }
 else
 {
 buffer[0] = format[*ind];
 buffer[1] = '\0';
-return 1;
+return (1);
 }
 }
