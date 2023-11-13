@@ -1,5 +1,4 @@
 #include "main.h"
-/************************* PRINT CHAR *************************/
 /**
 * print_char - Prints a char
 * @types: List of arguments
@@ -16,15 +15,12 @@ int flags, int width, int precision, int size)
 char c = va_arg(types, int);
 return (hand_write_ch(c, buffer, flags, width, precision, size));
 }
-/************************* PRINT A STRING *************************/
 /**
 * print_string - Prints a string
 * @types: List of arguments
 * @buffer: Buffer array to handle print
 * @flags: Calculates active flags
-* @width: Width
 * @precision: Precision specification
-* @size: Size specifier
 * Return: Number of chars printed
 */
 int print_string(va_list types, char buffer[],
