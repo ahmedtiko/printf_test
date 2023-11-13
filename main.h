@@ -23,7 +23,7 @@
 #define S_LONG 2
 #define S_SHORT 1
 /**
- * struct format
+ * struct format - A structure holds the format specifier
  * @fmt: The format.
  * @fn: The function associated.
  */
