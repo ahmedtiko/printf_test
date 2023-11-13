@@ -21,7 +21,6 @@ struct format /*struct */
 char fmt;
 int (*fn)(va_list, char[], int, int, int, int);
 };
-/*struct*/ 
 struct format format_types[] = {
 {'c', &print_char}, {'s', &print_string}, {'%', &print_percent},
 {'i', &print_int}, {'d', &print_int}, {'b', &print_binary},
