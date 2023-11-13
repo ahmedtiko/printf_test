@@ -20,7 +20,9 @@ return (hand_write_ch(c, buffer, flags, width, precision, size));
 * @types: List of arguments
 * @buffer: Buffer array to handle print
 * @flags: Calculates active flags
+* @width: Width
 * @precision: Precision specification
+* @size: Size specifier
 * Return: Number of chars printed
 */
 int print_string(va_list types, char buffer[],
@@ -71,7 +73,6 @@ return (width);
 }
 return (write(1, str, len));
 }
-/************************* PRINT PERCENT SIGN *************************/
 /**
 * print_percent - Prints a percent sign
 * @types: List of arguments
@@ -93,7 +94,6 @@ UNUSED(precision);
 UNUSED(size);
 return (write(1, "%%", 1));
 }
-/************************* PRINT INT *************************/
 /**
 * print_int - Print int
 * @types: List of arguments
@@ -124,7 +124,6 @@ n /= 10;
 i++;
 return (write_num_0(is_negative, i, buffer, flags, width, precision, size));
 }
-/************************* PRINT BINARY *************************/
 /**
 * print_binary - Prints an unsigned number
 * @types: List of arguments
