@@ -55,7 +55,7 @@ int hand_write_ch(char c, char buffer[],
 
 	return (write(1, &buffer[0], 1));
 }
-int flags, int width, int precision, int size)
+int (flags, int width, int precision, int size)
 {
 int i, y = 0;
 char padd = ' ';
