@@ -29,22 +29,28 @@ int hand_write_ch(char c, char buffer[],
 
 	if (width > 1)
 	{
+		int remainingWidth = width - 1;
+		int writeCount;
 		buffer[BUFF_SIZE - 1] = '\0';
-		for (i = 0; i < width - 1; i++)
+
+		for (i = 0; i < remainingWidth; i++)
 		{
 			buffer[BUFF_SIZE - i - 2] = padd;
 		}
 
 		if (flags & FLAG_MINUS)
 		{
-			return (write(1, &buffer[0], 1) +
-					write(1, &buffer[BUFF_SIZE - i - 1], width - 1));
+			 writeCount = write(1, &buffer[0], 1) + write(1, &buffer[BUFF_SIZE - remainingWidth - 1], remainingWidth);
+			/*return (write(1, &buffer[0], 1) +
+					write(1, &buffer[BUFF_SIZE - i - 1], width - 1));*/
 		}
 		else
 		{
-			return (write(1, &buffer[BUFF_SIZE - i - 1], width - 1) +
-					write(1, &buffer[0], 1));
+			writeCount = write(1, &buffer[BUFF_SIZE - remainingWidth - 1], remainingWidth) + write(1, &buffer[0], 1);
+			/*return (write(1, &buffer[BUFF_SIZE - i - 1], width - 1) +
+					write(1, &buffer[0], 1));*/
 		}
+		return (writeCount);
 	}
 
 	return (write(1, &buffer[0], 1));
