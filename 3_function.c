@@ -125,42 +125,44 @@ i++;
 return (write_num_0(is_negative, i, buffer, flags, width, precision, size));
 }
 /**
-* print_binary - prints an unsigned num
-* @types: list of args
-* @buffer: buffer array to handle print
-* @flags: calculates active flags
-* @width: Width
-* @precision: precision specification
-* @size: size specifier
-* Return: Num of chars printed
-*/
+ * print_binary - prints an unsigned num in binary
+ * @types: list of args
+ * @buffer: buffer array to handle print
+ * @flags: calculates active flags
+ * @width: Width
+ * @precision: precision specification
+ * @size: size specifier
+ * Return: Num of chars printed
+ */
 int print_binary(va_list types, char buffer[],
-int flags, int width, int precision, int size)
+                 int flags, int width, int precision, int size)
 {
-unsigned int m, i, sum;
-unsigned int a[32];
-int count;
-UNUSED(buffer);
-UNUSED(flags);
-UNUSED(width);
-UNUSED(precision);
-UNUSED(size);
-m = va_arg(types, unsigned int);
-a[0] = m / 2147483648;
-for (i = 1; i < 32; i++)
-{
-m /= 2;
-a[i] = (m / 2147483648) % 2;
-}
-for (i = 0, sum = 0, count = 0; i < 32; i++)
-{
-sum += a[i];
-if (sum || i == 31)
-{
-char z = '0' + a[i];
-write(1, &z, 1);
-count++;
-}
-}
-return (count);
+    unsigned int m, i;
+    unsigned int a[32];
+    int count;
+
+    UNUSED(buffer);
+    UNUSED(flags);
+    UNUSED(width);
+    UNUSED(precision);
+    UNUSED(size);
+
+    m = va_arg(types, unsigned int);
+    a[0] = m / 2147483648;
+    count = a[0] != 0 ? 1 : 0;
+
+    for (i = 1; i < 32; i++)
+    {
+        m /= 2;
+        a[i] = (m / 2147483648) % 2;
+
+        if (a[i] != 0 || i == 31)
+        {
+            char z = '0' + a[i];
+            write(1, &z, 1);
+            count++;
+        }
+    }
+
+    return count;
 }
