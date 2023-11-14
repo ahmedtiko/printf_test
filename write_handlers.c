@@ -12,36 +12,57 @@
 int hand_write_ch(char c, char buffer[],
 int flags, int width, int precision, int size)
 {
-int i, y = 0;
-char padd = ' ';
+int i, index = 0; 
+/*y = 0;*/
+char padding = ' ';
 UNUSED(precision);
 UNUSED(size);
 if (flags & FLAG_ZERO)
 {
-padd = '0';
+padding = '0';
 }
-buffer[y++] = c;
-buffer[y] = '\0';
+/*buffer[y++] = c;
+buffer[y] = '\0';*/
 
 if (width > 1)
 {
-buffer[BUFF_SIZE - 1] = '\0';
+/*buffer[BUFF_SIZE - 1] = '\0';*/
 for (i = 0; i < width - 1; i++)
 {
-buffer[BUFF_SIZE - i - 2] = padd;
-}
-if (flags & FLAG_MINUS)
+buffer[index++] = padding;
+if (index == BUFF_SIZE - 1)
 {
+write(1, &buffer[0], index);
+index = 0;
+}
+}
+}
+buffer[index++] = c;
+buffer[index] = '\0';
+while (index < width)
+{
+write(1, &padding, 1);
+index++;
+}
+/*if (flags & FLAG_MINUS)
+{
+write(1, &buffer[0], index);
+for (i = 0; i < width - 1; i++)
+{
+write(1, &padding, 1);
+}
 return (write(1, &buffer[0], 1) +
 write(1, &buffer[BUFF_SIZE - i - 1], width - 1));
-}
-else
+}*/
+/*else
 {
-return (write(1, &buffer[BUFF_SIZE - i - 1], width - 1) +
+write(1, &buffer[0], index);*/
+/*return (write(1, &buffer[BUFF_SIZE - i - 1], width - 1) +
 write(1, &buffer[0], 1));
-}
-}
-return (write(1, &buffer[0], 1));
+}*/
+
+/*return (write(1, &buffer[0], 1));*/
+return (index);
 }
 /**
 * write_num_0 - Writes a number with zero padding.
