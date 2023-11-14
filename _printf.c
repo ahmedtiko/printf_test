@@ -1,9 +1,9 @@
 #include "main.h"
 void print_buffer(char buffer[], int *buff_index);
 /**
-* _printf - Printf function
+* _printf - printf function
 * @format: format.
-* Return: Printed chars.
+* Return: printed character.
 */
 int _printf(const char *format, ...)
 {
@@ -49,9 +49,9 @@ va_end(list);
 return (pr_chars);
 }
 /**
-* print_buffer - Prints the contents of the buffer if it exists
-* @buffer: Array of chars
-* @buff_index: Index at which to add the next char, represents the length.
+* print_buffer - prints the contents of the buffer
+* @buffer: array of character
+* @buff_index: index represents the length.
 */
 void print_buffer(char buffer[], int *buff_index)
 {
