@@ -53,7 +53,7 @@ return (index);
 * Return: num of chars printed
 */
 int write_num_0(int is_positive, int ind, char buffer[],
-int flags, int width, int precision, int size, int is_negative)
+int flags, int width, int precision, int size)
 {
 int len = BUFF_SIZE - ind - 1;
 char padd = ' ', extra_ch = 0;
@@ -103,14 +103,6 @@ if (prec == 0 && ind == BUFF_SIZE - 2 && buffer[ind] == '0')
 if (prec > 0 && prec > length)
 {
     padd = ' ';
-}
-if (extra_c)
-{
-    buffer[--ind] = extra_c;
-}
-else if (is_negative)
-{
-    buffer[--ind] = '-';
 }
 while (prec > length)
 {
