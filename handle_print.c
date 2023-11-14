@@ -1,16 +1,16 @@
 #include "main.h"
 /**
-* handle_print - Handles the printing of formatted output.
-* @format: Format string.
-* @ind: Pointer to the index in the format string.
-* @list: Variable argument list.
-* @buffer: Buffer array to handle print.
-* @flags: Active flags.
-* @width: Width specifier.
-* @precision: Precision specifier.
-* @size: Size specifier.
+* handle_print - handling the printed format output
+* @format: string format
+* @ind: pointer of the index in the format string
+* @list: variable arg list
+* @buffer: buffer the array to handle print
+* @flags: active flags
+* @width: Width specifier
+* @precision: precision specifier
+* @size: size specifier
 *
-* Return: Number of characters printed.
+* Return: num of chars printed
 */
 int handle_print(const char *format, int *ind, va_list list, char buffer[],
 int flags, int width, int precision, int size)
