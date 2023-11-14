@@ -36,25 +36,31 @@ write(1, &buffer[0], index);
 index = 0;
 }
 }
+}
 buffer[index++] = c;
 buffer[index] = '\0';
-if (flags & FLAG_MINUS)
+while (index < width)
+{
+write(1, &padding, 1);
+index++;
+}
+/*if (flags & FLAG_MINUS)
 {
 write(1, &buffer[0], index);
 for (i = 0; i < width - 1; i++)
 {
 write(1, &padding, 1);
 }
-/*return (write(1, &buffer[0], 1) +
-write(1, &buffer[BUFF_SIZE - i - 1], width - 1));*/
-}
-else
+return (write(1, &buffer[0], 1) +
+write(1, &buffer[BUFF_SIZE - i - 1], width - 1));
+}*/
+/*else
 {
-write(1, &buffer[0], index);
+write(1, &buffer[0], index);*/
 /*return (write(1, &buffer[BUFF_SIZE - i - 1], width - 1) +
-write(1, &buffer[0], 1));*/
-}
-}
+write(1, &buffer[0], 1));
+}*/
+
 /*return (write(1, &buffer[0], 1));*/
 return (index);
 }
