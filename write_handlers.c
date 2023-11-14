@@ -53,7 +53,7 @@ return (index);
 * Return: num of chars printed
 */
 int write_num_0(int is_positive, int ind, char buffer[],
-int flags, int width, int precision, int size)
+int flags, int width, int precision, int size, int is_negative)
 {
 int len = BUFF_SIZE - ind - 1;
 char padd = ' ', extra_ch = 0;
