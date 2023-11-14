@@ -9,7 +9,8 @@
 * @size: size specifier.
 * Return: num of chars printed
 */
-int hand_write_ch(char c, char buffer[], int flags, int width, int precision, int size)
+int hand_write_ch(char c, char buffer[], 
+int flags, int width, int precision, int size)
 {
 int i, index = 0;
 char padding = ' ';
