@@ -192,7 +192,7 @@ buffer[i] = padd;
 buffer[i] = '\0';
 if (flags & FLAG_MINUS)
 {
-return (write(1, &buffer[ind], len) + write(1, &buffer[0], I));
+return (write(1, &buffer[ind], len) + write(1, &buffer[0], i));
 }
 else /* Asign extra char to left of padding [padd>buffer]*/
 {
