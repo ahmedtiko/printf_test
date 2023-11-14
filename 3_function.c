@@ -91,7 +91,7 @@ UNUSED(flags);
 UNUSED(width);
 UNUSED(precision);
 UNUSED(size);
-return write(1, "%%", 1);
+return (write(1, "%%", 1));
 }
 /**
 * print_int - Print int
@@ -121,7 +121,7 @@ buffer[i--] = (n % 10) + '0';
 n /= 10;
 }
 i++;
-return write_num_0(is_negative, i, buffer, flags, width, precision, size);
+return (write_num_0(is_negative, i, buffer, flags, width, precision, size));
 }
 /**
 * print_binary - Prints an unsigned number
@@ -161,5 +161,5 @@ write(1, &z, 1);
 count++;
 }
 }
-return count;
+return (count);
 }
