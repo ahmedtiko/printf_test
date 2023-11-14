@@ -1,13 +1,13 @@
 #include "main.h"
 /**
-* hand_write_ch - Handles the writing of characters for width formatting.
-* @c: Character to be written.
-* @buffer: Buffer array to handle print.
-* @flags: Calculates active flags.
-* @width: Width.
-* @precision: Precision specification.
-* @size: Size specifier.
-* Return: Number of chars printed.
+* hand_write_ch - handles writing chars for width formatting
+* @c: char to be written
+* @buffer: buffer array to handle print
+* @flags: calculates active flags
+* @width: Width
+* @precision: precision specification.
+* @size: size specifier.
+* Return: num of chars printed
 */
 int hand_write_ch(char c, char buffer[],
 int flags, int width, int precision, int size)
@@ -23,7 +23,6 @@ padding = '0';
 }
 /*buffer[y++] = c;
 buffer[y] = '\0';*/
-
 if (width > 1)
 {
 /*buffer[BUFF_SIZE - 1] = '\0';*/
@@ -44,37 +43,7 @@ while (index < width)
 write(1, &padding, 1);
 index++;
 }
-/*if (flags & FLAG_MINUS)
-{
-write(1, &buffer[0], index);
-for (i = 0; i < width - 1; i++)
-{
-write(1, &padding, 1);
-}
-return (write(1, &buffer[0], 1) +
-write(1, &buffer[BUFF_SIZE - i - 1], width - 1));
-}*/
-/*else
-{
-write(1, &buffer[0], index);*/
-/*return (write(1, &buffer[BUFF_SIZE - i - 1], width - 1) +
-write(1, &buffer[0], 1));
-}*/
 
-/*return (write(1, &buffer[0], 1));*/
-return (index);
-}
-/**
-* write_num_0 - Writes a number with zero padding.
-* @is_positive: Indicator for positive number.
-* @ind: Index at which the number starts on the buffer.
-* @buffer: Buffer array to handle print.
-* @flags: Calculates active flags.
-* @width: Width.
-* @precision: Precision specifier.
-* @size: Size specifier.
-* Return: Number of chars printed.
-*/
 int write_num_0(int is_positive, int ind, char buffer[],
 int flags, int width, int precision, int size)
 {
@@ -97,23 +66,21 @@ else if (flags & FLAG_SPACE)
 {
 extra_ch = ' ';
 }
-
 return (write_num(ind, buffer, flags, width, precision,
 len, padd, extra_ch));
 }
-
 /**
-* write_num - Write a number using a buffer.
-* @ind: Index at which the number starts on the buffer.
-* @buffer: Buffer.
-* @flags: Flags.
-* @width: Width.
-* @prec: Precision specifier.
-* @length: Number length.
-* @padd: Padding char.
-* @extra_c: Extra char.
+* write_num - write num using buffer
+* @ind: index which the num starts the buffer
+* @buffer: buffer
+* @flags: flags
+* @width: Width
+* @prec: precision specifier
+* @length: num length
+* @padd: padding char
+* @extra_c: extra char
 *
-* Return: Number of printed chars.
+* Return: num of printed chars.
 */
 int write_num(int ind, char buffer[],
 int flags, int width, int prec,
