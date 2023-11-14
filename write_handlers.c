@@ -129,13 +129,14 @@ if (prec == 0 && ind == BUFF_SIZE - 2 && buffer[ind] == '0')
 {
 buffer[ind] = padd = ' ';
 }
-if (prec > 0 && prec < length)
+if (prec > 0 && prec > length)
 {
 padd = ' ';
 }
 while (prec > length)
 {
-buffer[--ind] = '0', length++;
+buffer[--ind] = '0';
+length++;
 }
 if (extra_c != 0)
 {
