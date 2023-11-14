@@ -9,8 +9,7 @@
 * @size: size specifier.
 * Return: num of chars printed
 */
-int hand_write_ch(char c, char buffer[],
-int flags, int width, int precision, int size)
+int hand_write_ch(char c, char buffer[], int flags, int width, int precision, int size)
 {
 int i, index = 0;
 /*y = 0;*/
@@ -45,8 +44,7 @@ while (index < width)
 write(1, &padding, 1);
 index++;
 }
-int write_num_0(int is_positive, int ind, char buffer[],
-int flags, int width, int precision, int size)
+int write_num_0(int is_positive, int ind, char buffer[], int flags, int width, int precision, int size)
 {
 int len = BUFF_SIZE - ind - 1;
 char padd = ' ', extra_ch = 0;
@@ -83,8 +81,7 @@ len, padd, extra_ch));
 *
 * Return: num of printed chars.
 */
-int write_num(int ind, char buffer[],
-int flags, int width, int prec, int length, char padd, char extra_c)
+int write_num(int ind, char buffer[], int flags, int width, int prec, int length, char padd, char extra_c)
 {
 int i, padd_start = 1;
 if (prec == 0 && ind == BUFF_SIZE - 2 && buffer[ind] == '0' && width == 0)
@@ -159,8 +156,7 @@ return (write(1, &buffer[ind], length));
 *
 * Return: Number of written chars.
 */
-int write_unsgnd(int is_negative, int ind, char buffer[],
-int flags, int width, int precision, int size)
+int write_unsgnd(int is_negative, int ind, char buffer[], int flags, int width, int precision, int size)
 {
 int len = BUFF_SIZE - ind - 1, i = 0;
 char padd = ' ';
