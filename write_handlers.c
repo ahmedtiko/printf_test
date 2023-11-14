@@ -250,7 +250,7 @@ return (write(1, &buffer[ind], len));
 * @extra_c: Char representing extra char.
 * @padd_start: Index at which padding should start.
 *
-* Return: Number of written chars.
+* Return: number of written char
 */
 int write_pointer(char buffer[], int ind, int length,
 int width, int flags, char padd, char extra_c, int padd_start)
